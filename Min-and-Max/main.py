@@ -21,4 +21,4 @@ for i in range(0, x):
     elif res < nums[i]:
         res = nums[i]
 
-print(f"{res}")
+print(res)
