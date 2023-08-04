@@ -5,7 +5,6 @@ import os
 import random
 import re
 import sys
-import numpy
 
 #
 # Complete the 'subsetA' function below.
@@ -16,14 +15,18 @@ import numpy
 # s_arr = list(numpy.sort(arr)[::-1])
 
 def subsetA(arr):
-    s_arr = sorted(arr, reverse=True)
+    arr.sort(reverse=True)
+    n = len(arr)
+    total = sum(arr)
+    current = 0
     res = []
-    while sum(res) <= sum(s_arr):
-        res.append(s_arr[0])
-        s_arr.remove(s_arr[0])
+    for i in range(n):
+        current += arr[i]
+        res.append(arr[i])
+        if current * 2 > total:
+            break
 
     res.sort()
-
     return res
 
 if __name__ == '__main__':
