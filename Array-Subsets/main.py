@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+
 #
 # Complete the 'subsetA' function below.
 #
@@ -15,20 +16,18 @@ import sys
 
 def subsetA(arr):
     arr.sort(reverse=True)
-    n = len(arr)
-    total = sum(arr)
     current = 0
+    total = sum(arr)
     res = []
-    for i in range(n):
+    for i in range(len(arr)):
         current += arr[i]
         res.append(arr[i])
-        if current * 2 > total:
+        if current > total - current:
             break
 
     res.sort()
     return res
-
-
+    
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
