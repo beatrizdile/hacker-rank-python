@@ -54,7 +54,23 @@ def print_singly_linked_list(node, sep, fptr):
 #
 
 def getNumber(binary):
-    # Write your code here
+    cur = binary
+    elems = []
+    while cur:
+        elems.append(cur.data)
+        cur = cur.next
+    
+    i = 0
+    res = 0
+    lenth = len(elems) - 1
+    
+    while lenth >= 0:
+        if elems[lenth] == 1:
+            res += pow(2, i)
+        lenth -= 1
+        i += 1
+            
+    return res
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
